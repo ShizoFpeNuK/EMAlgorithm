@@ -1,0 +1,4 @@
+/node_modules
+
+# Папка преобразования TS в JS
+/dist

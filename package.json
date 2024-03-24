@@ -1,0 +1,20 @@
+{
+  "name": "lebedev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/EMAlgorithm.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/EMAlgorithm.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  }
+}
