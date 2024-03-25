@@ -11,3 +11,5 @@ npm init
 npm run build
 npm run start
 ```
+# Источник
+Ссылка: https://www.sciencedirect.com/science/article/pii/S0304397516302328
