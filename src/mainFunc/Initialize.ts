@@ -1,9 +1,10 @@
-import { minObjFunc } from "./minObjFunc.js";
-import { ParticleClass } from "./ParticleClass.js";
+import { ParticleBest, minObjFunc } from "../secondaryFunc/minObjFunc";
+import { ParticleClass } from "../classes/ParticleClass";
+import { objFunc } from "../objFunc";
 
 export interface InitialValue {
 	particles: ParticleClass[];
-	bestValueObjFunc: number;
+	particleBest: ParticleBest;
 }
 
 //* Метод инициализации популяции
@@ -11,7 +12,6 @@ export const Initialize = (
 	bounds: number[][],
 	countParticles: number,
 	countDimensions: number,
-	objectiveFunction: (coordinates: number[]) => number,
 ): InitialValue => {
 	const particles: ParticleClass[] = [];
 
@@ -25,11 +25,11 @@ export const Initialize = (
 			coordinates.push(coordinate);
 		}
 
-		const funcValue = objectiveFunction(coordinates);
+		const funcValue = objFunc(coordinates[0]);
 		particles.push(new ParticleClass(coordinates, funcValue));
 	}
 
-  console.log("Инициализация завершена");
-	const bestValueObjFunc = minObjFunc(particles, particles[0].valueObjFunc);
-	return { particles, bestValueObjFunc };
+	console.log("Инициализация завершена");
+	const { indexBest, bestValueObjFunc } = minObjFunc(particles, particles[0].valueObjFunc);
+	return { particles, particleBest: { bestValueObjFunc, indexBest } };
 };

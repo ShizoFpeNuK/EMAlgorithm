@@ -1,6 +1,6 @@
 {
-  "watch": ["src"],
-  "ext": ".ts",
-  "ignore": [],
-  "exec": "node --loader ts-node/esm ./src/EMAlgorithm.ts"
+	"watch": ["src"],
+	"ext": ".ts",
+	"ignore": [],
+	"exec": "npx ts-node ./src/EMAlgorithm.ts"
 }

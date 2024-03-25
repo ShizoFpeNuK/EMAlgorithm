@@ -1,4 +1,4 @@
 //* Целевая функция
-export const objectiveFunction = (vector: number[]) => {
-	return vector[0] ** 2 + vector[1] ** 2;
+export const objFunc = (x: number) => {
+	return x ** 3 + 7 * x - 8;
 };

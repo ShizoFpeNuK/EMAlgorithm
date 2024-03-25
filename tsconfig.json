@@ -2,7 +2,6 @@
 	"compilerOptions": {
 		"target": "ES2018",
 		"module": "NodeNext",
-		"moduleResolution": "NodeNext",
 		"allowJs": false,
 		"alwaysStrict": true,
 		"strict": true,
@@ -23,5 +22,5 @@
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"],
-	"lib": ["esnext"],
+	"lib": ["esnext"]
 }

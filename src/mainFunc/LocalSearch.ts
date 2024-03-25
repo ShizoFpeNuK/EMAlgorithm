@@ -1,6 +1,6 @@
-import { minObjFunc } from "./minObjFunc.js";
-import { ParticleClass } from "./ParticleClass.js";
-import { objectiveFunction } from "./objFunc.js";
+import { objFunc } from "../objFunc";
+import { ParticleClass } from "../classes/ParticleClass";
+import { ParticleBest, minObjFunc } from "../secondaryFunc/minObjFunc";
 
 //* Функция локального поиска
 export const LocalSearch = (
@@ -11,7 +11,7 @@ export const LocalSearch = (
 	countDimensions: number,
 	particles: ParticleClass[],
 	bestValueObjFunc: number,
-): number => {
+): ParticleBest => {
 	const lengthSteps: number[] = [];
 
 	bounds.forEach((bound) => {
@@ -34,18 +34,18 @@ export const LocalSearch = (
 					coordinatesBuff[k] = coordinatesBuff[k] - step2 * maxLengthStep;
 				}
 
-				const valueObjFuncBuff = objectiveFunction(coordinatesBuff);
+				const valueObjFuncBuff = objFunc(coordinatesBuff[0]);
 
 				if (valueObjFuncBuff < particles[i].valueObjFunc) {
 					particles[i].coordinates = coordinatesBuff;
 					particles[i].valueObjFunc = valueObjFuncBuff;
-					console.log("Итерация остановки и целевое значение", iter, valueObjFuncBuff);
+					// console.log("Итерация остановки и целевое значение", iter, valueObjFuncBuff);
 					break;
 				}
 			}
 		}
 	}
 
-	console.log("Search Local завершён");
+	// console.log("Search Local завершён");
 	return minObjFunc(particles, bestValueObjFunc);
 };
